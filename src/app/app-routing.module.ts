@@ -15,6 +15,11 @@ const routes: Routes = [
       import('./busca/busca.module').then((m) => m.BuscaModule),
   },
   {
+    path: 'home',
+    loadChildren: () =>
+      import('./home/home-routing.module').then((m) => m.HomeRoutingModule),
+  },
+  {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full',
@@ -28,7 +33,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '/pagina-nao-encontrada',
+    redirectTo: '/home',
     pathMatch: 'full',
   },
 ];

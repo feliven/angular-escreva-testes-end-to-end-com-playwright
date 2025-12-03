@@ -19,6 +19,11 @@ const routes: Routes = [
     component: PerfilComponent,
     canActivate: [authGuard],
   },
+  {
+    path: '',
+    redirectTo: '/auth/login',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
