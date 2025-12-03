@@ -6,7 +6,7 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () =>
       import('./autenticacao/autenticacao.module').then(
-        (m) => m.AutenticacaoModule,
+        (m) => m.AutenticacaoModule
       ),
   },
   {
@@ -18,6 +18,13 @@ const routes: Routes = [
     path: '',
     redirectTo: '/home',
     pathMatch: 'full',
+  },
+  {
+    path: 'pagina-nao-encontrada',
+    loadChildren: () =>
+      import('./core/erro/erro-routing.module').then(
+        (m) => m.ErroRoutingModule
+      ),
   },
   {
     path: '**',
