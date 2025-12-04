@@ -18,6 +18,10 @@ test.describe('Página Principal', () => {
       'minas gerais',
       'rio de janeiro'
     );
+
+    await paginaPrincipal.definirData(new Date());
+
+    await paginaPrincipal.buscarPassagens();
   });
 
   test('Deve clicar nos campos e botão Buscar', async ({ page }) => {

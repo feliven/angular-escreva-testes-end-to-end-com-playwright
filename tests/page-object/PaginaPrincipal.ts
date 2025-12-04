@@ -124,4 +124,13 @@ export default class PaginaPrincipal {
     await this.campoDropdownDestino.fill(destino);
     await this.campoDropdownDestino.press('Enter');
   }
+
+  async definirData(data: Date) {
+    const dataFormatada = data.toLocaleString('en-US', { dateStyle: 'short' });
+    await this.campoDataIda.fill(dataFormatada);
+  }
+
+  async buscarPassagens() {
+    await this.botaoBuscar.click();
+  }
 }
