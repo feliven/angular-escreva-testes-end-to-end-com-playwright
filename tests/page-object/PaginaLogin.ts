@@ -1,4 +1,13 @@
 import { Locator, Page, expect } from '@playwright/test';
+import { test as base } from '@playwright/test';
+
+export const test = base.extend<{ paginaLogin: PaginaLogin }>({
+  paginaLogin: async ({ page }, use) => {
+    const paginaLogin = new PaginaLogin(page);
+    await paginaLogin.visitar();
+    await use(paginaLogin);
+  },
+});
 
 export default class PaginaLogin {
   private readonly page: Page;
@@ -27,8 +36,7 @@ export default class PaginaLogin {
   }
 
   async fazerLogin(email: string, senha: string) {
-    await this.inputEmail.fill(email);
-    await this.inputSenha.fill(senha);
+    await this.preencherFormulario(email, senha);
     await this.botaoAcessarConta.click();
   }
 
