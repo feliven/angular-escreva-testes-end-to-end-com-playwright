@@ -12,3 +12,11 @@ test.describe('Página de Login', () => {
     await paginaLogin.loginFeitoComSucesso();
   });
 });
+
+test('Não deve conseguir fazer login com email inválido', async ({ page }) => {
+  const paginaLogin = new PaginaLogin(page);
+
+  await paginaLogin.visitar();
+  await paginaLogin.fazerLogin('antonio.errado@alura.com', '123456');
+  await paginaLogin.mostraMensagemErro('autorizado a acessar');
+});
