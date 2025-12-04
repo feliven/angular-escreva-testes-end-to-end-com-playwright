@@ -133,4 +133,15 @@ export default class PaginaPrincipal {
   async buscarPassagens() {
     await this.botaoBuscar.click();
   }
+
+  async confereSePassagemEMostrada(
+    tipoTrajeto: 'Somente ida' | 'Ida e volta',
+    origem: string,
+    destino: string
+  ) {
+    await expect(this.textoIdaVolta).toHaveText(tipoTrajeto);
+    await expect(this.containerOrigem).toContainText(origem);
+    await expect(this.containerDestino).toContainText(destino);
+    await expect(this.botaoComprar).toBeVisible();
+  }
 }

@@ -22,6 +22,12 @@ test.describe('Página Principal', () => {
     await paginaPrincipal.definirData(new Date());
 
     await paginaPrincipal.buscarPassagens();
+
+    await paginaPrincipal.confereSePassagemEMostrada(
+      'Somente ida',
+      'Minas Gerais',
+      'Rio de Janeiro'
+    );
   });
 
   test('Deve clicar nos campos e botão Buscar', async ({ page }) => {
