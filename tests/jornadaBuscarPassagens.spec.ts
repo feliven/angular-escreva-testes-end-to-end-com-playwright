@@ -6,6 +6,13 @@ test.describe('Página Principal', () => {
     const paginaPrincipal = new PaginaPrincipal(page);
 
     await paginaPrincipal.visitar();
+
+    await paginaPrincipal.definirSomenteIda();
+    await paginaPrincipal.abrirModalPassageiros();
+    await paginaPrincipal.definirPassageirosAdultos(3);
+    await paginaPrincipal.definirPassageirosCriancas(1);
+    await paginaPrincipal.definirPassageirosBebes(1);
+    await paginaPrincipal.fecharModalPassageiros();
   });
 
   test('Deve clicar nos campos e botão Buscar', async ({ page }) => {

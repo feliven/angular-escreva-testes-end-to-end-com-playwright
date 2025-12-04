@@ -89,4 +89,29 @@ export default class PaginaPrincipal {
     // await this.campoDataVolta.click();
     await this.botaoBuscar.click();
   }
+
+  async definirSomenteIda() {
+    await this.botaoSomenteIda.click();
+  }
+  async abrirModalPassageiros() {
+    await this.botaoAbrirModalPassageiros.click();
+  }
+  async definirPassageirosAdultos(quantidade: number = 1) {
+    for (let i = 1; i < quantidade; i++) {
+      await this.botaoAdicionarAdulto.click();
+    }
+  }
+  async definirPassageirosCriancas(quantidade: number = 0) {
+    for (let i = 0; i < quantidade; i++) {
+      await this.botaoAdicionarCrianca.click();
+    }
+  }
+  async definirPassageirosBebes(quantidade: number = 0) {
+    for (let i = 0; i < quantidade; i++) {
+      await this.botaoAdicionarBebe.click();
+    }
+  }
+  async fecharModalPassageiros() {
+    await this.botaoFecharModalPassageiros.click();
+  }
 }
