@@ -46,11 +46,13 @@ export default class PaginaPrincipal {
     );
     //   .getByLabel('BUSCAR');
 
-    this.campoDropdownOrigem = page.getByTestId('campo-dropdown-origem');
-    //   .getByLabel('Origem');
+    this.campoDropdownOrigem = page
+      .getByTestId('campo-dropdown-origem')
+      .getByLabel('Origem');
 
-    this.campoDropdownDestino = page.getByTestId('campo-dropdown-destino');
-    //   .getByLabel('Destino');
+    this.campoDropdownDestino = page
+      .getByTestId('campo-dropdown-destino')
+      .getByLabel('Destino');
 
     this.campoDataIda = page.getByTestId('campo-data-ida');
     //   .getByLabel('Data de ida');
@@ -113,5 +115,13 @@ export default class PaginaPrincipal {
   }
   async fecharModalPassageiros() {
     await this.botaoFecharModalPassageiros.click();
+  }
+
+  async definirOrigemEDestino(origem: string, destino: string) {
+    await this.campoDropdownOrigem.fill(origem);
+    await this.campoDropdownOrigem.press('Enter');
+
+    await this.campoDropdownDestino.fill(destino);
+    await this.campoDropdownDestino.press('Enter');
   }
 }

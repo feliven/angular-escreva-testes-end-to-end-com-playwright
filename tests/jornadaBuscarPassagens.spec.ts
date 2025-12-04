@@ -13,6 +13,11 @@ test.describe('Página Principal', () => {
     await paginaPrincipal.definirPassageirosCriancas(1);
     await paginaPrincipal.definirPassageirosBebes(1);
     await paginaPrincipal.fecharModalPassageiros();
+
+    await paginaPrincipal.definirOrigemEDestino(
+      'minas gerais',
+      'rio de janeiro'
+    );
   });
 
   test('Deve clicar nos campos e botão Buscar', async ({ page }) => {
