@@ -21,6 +21,11 @@ export default class PaginaLogin {
     await expect(this.page).toHaveURL('/auth/login');
   }
 
+  async preencherFormulario(email: string, senha: string) {
+    await this.inputEmail.fill(email);
+    await this.inputSenha.fill(senha);
+  }
+
   async fazerLogin(email: string, senha: string) {
     await this.inputEmail.fill(email);
     await this.inputSenha.fill(senha);
