@@ -8,5 +8,7 @@ test.describe('Página de Login', () => {
     const paginaLogin = new PaginaLogin(page);
 
     await paginaLogin.visitar();
+    await paginaLogin.fazerLogin('f@g.com', '123');
+    await paginaLogin.loginFeitoComSucesso();
   });
 });
